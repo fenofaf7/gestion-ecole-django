@@ -1,0 +1,30 @@
+{% extends "etudiants/base.html" %}
+
+{% block title %}Supprimer un étudian{% endblock %}
+
+{% block content %}
+
+<div class="card shadow-sm mx-auto" style="max-width: 600px;">
+
+    <div class="card-body">
+
+        <h3 class="text-danger">Confirmer la suppression</h3> 
+        <p> Voulez-vous vraiment supprimer 
+            <strong>
+                {{etudiant.prenom }} 
+                {{ etudiant.nom }}
+            </strong>
+            ?
+        </p> 
+
+        <form method="post">
+            {% csrf_token %}
+
+            <button type="submit" class="btn btn-danger"> Oui, supprimer </button> 
+            <a href="{% url 'liste_etudiants' %}" class="btn btn-secondary"> Annuler </a>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
